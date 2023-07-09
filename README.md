@@ -1,6 +1,8 @@
 # ChannelPacker
 Unity Texture Combiner. Pack multiple texture color channels into one texture!
 
+Open with **Tools/ChannelPacker**
+
 - Combine multiple textures into one output texture (For use in Mask maps or other packed texture techniques)
 - Choose which channel each texture pulls from, and where it goes to
 - Invert / multiply texture inputs for desired results
