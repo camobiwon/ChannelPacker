@@ -1,0 +1,37 @@
+﻿#pragma kernel CSMain
+#pragma kernel ChannelSet
+
+RWTexture2D<float4> Result;
+RWTexture2D<float4> Packed;
+
+Texture2D<float4> r;
+Texture2D<float4> g;
+Texture2D<float4> b;
+Texture2D<float4> a;
+int4 froms;
+int4 inverts;
+float4 mults;
+
+float packedCol;
+
+[numthreads(1, 1, 1)]
+void CSMain(uint3 id : SV_DispatchThreadID) {
+    half rInput = r[id.xy][froms[0]];
+    rInput = lerp(rInput, (1 - rInput), inverts[0]) * mults[0];
+
+    half gInput = g[id.xy][froms[1]];
+    gInput = lerp(gInput, (1 - gInput), inverts[1]) * mults[1];
+	
+    half bInput = b[id.xy][froms[2]];
+    bInput = lerp(bInput, (1 - bInput), inverts[2]) * mults[2];
+	
+    half aInput = a[id.xy][froms[3]];
+    aInput = lerp(aInput, (1 - aInput), inverts[3]) * mults[3];
+
+	Result[id.xy] = float4(rInput, gInput, bInput, aInput);
+}
+
+[numthreads(1, 1, 1)]
+void ChannelSet(uint3 id : SV_DispatchThreadID) {
+	Packed[id.xy] = float4(packedCol, 0, 0, 1);
+}
