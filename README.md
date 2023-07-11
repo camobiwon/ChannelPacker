@@ -13,3 +13,9 @@ Open with **Tools/ChannelPacker**
 ![image](https://github.com/camobiwon/ChannelPacker/assets/30759426/7ba13073-1570-49ef-b1d5-5ea3b63cdf5e)
 
 ![All](https://github.com/camobiwon/ChannelPacker/assets/30759426/598f2ec7-9f20-4430-9742-eae82359be97)
+
+ChannelPacker is a heavily modified / rewritten version of [MaskPacker](https://www.reddit.com/r/Unity3D/comments/glkvp2/i_made_another_mask_map_packer_for_hdrp/).
+
+Mask Packer was built for HDRP masks only, so I made this to be modular, flexible, and support many more workflows, while fixing some quirks / bugs I had with the original.
+
+Thank you to the original creator of this, I appreciate it and hope others will find this to be useful :)
